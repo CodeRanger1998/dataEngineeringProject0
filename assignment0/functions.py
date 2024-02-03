@@ -4,8 +4,8 @@ from PyPDF2 import PdfReader
 import re
 import sqlite3
 
-def sqlConnect():
-    con = sqlite3.connect("resources/normanpd.db")
+def sqlConnect(dbName):
+    con = sqlite3.connect("resources/"+dbName)
     cur = con.cursor()
     cur.execute("CREATE TABLE incidents(incidentDate TEXT, address TEXT, incidentNumber TEXT,nature TEXT)")
     return con
@@ -56,4 +56,3 @@ def getDataFromWeb(urlString):
     data = urllib.request.urlopen(urllib.request.Request(url, headers=headers)).read()  
     memoryObject = io.BytesIO(data) 
     return memoryObject                                                                          
-

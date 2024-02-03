@@ -4,7 +4,7 @@ import argparse
 import functions
 
 def main(url):
-    con = functions.sqlConnect()
+    con = functions.sqlConnect("normanpd.db")
     webData = functions.getDataFromWeb(url)
     incidents = functions.convertPdfDataToJSON(webData)
     functions.insertData(con=con,incidents=incidents)
