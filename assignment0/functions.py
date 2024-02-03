@@ -18,7 +18,7 @@ def insertData(con,incidents):
 def getDataFromSQLite(con):
     cur = con.cursor()
     data = cur.execute(""" 
-        SELECT nature,COUNT(*) FROM incidents GROUP BY nature ORDER BY nature;
+        SELECT nature,COUNT(*) FROM incidents GROUP BY nature ORDER BY COUNT(*);
 """)
     return data
 
