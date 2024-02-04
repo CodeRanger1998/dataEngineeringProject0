@@ -5,6 +5,7 @@ import functions
 
 def main(url):
     con = functions.sqlConnect("normanpd.db")
+    print(url)
     webData = functions.getDataFromWeb(url)
     incidents = functions.convertPdfDataToJSON(webData)
     functions.insertData(con=con,incidents=incidents)
