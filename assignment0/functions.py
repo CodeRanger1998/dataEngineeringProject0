@@ -60,7 +60,7 @@ def convertPdfDataToJSON(pdfData):
                     incidentOri = re.split(" ",pageLine)[-1]
                     pageLine = re.split(incidentOri,pageLine)[0].strip()
                     # address = re.search("([A-Z]?[a-z]+/*\s*)+",pageLine)
-                    nature = re.search("(COP DDACTS)|(CIR)?(COP)?(MVA)?(911)?(EMS)?\\s*[A-Z][a-z]+.*",pageLine)
+                    nature = re.search("(COP DDACTS)|(COP)?(MVA)?(911)?(EMS)?\\s*[A-Z][a-z]+.*",pageLine)
                     if nature==None and len(pageLine)>0:
                         # print(1,pageLine)
                         oldIncidentNumber = incidentNumber
