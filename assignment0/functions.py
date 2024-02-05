@@ -7,12 +7,12 @@ import sqlite3
 def sqlConnect(dbName):
     con = sqlite3.connect("resources/"+dbName)
     cur = con.cursor()
-    cur.execute("CREATE TABLE incidents(incidentDate TEXT, address TEXT, incidentNumber TEXT,nature TEXT)")
+    cur.execute("CREATE TABLE incidents(incidentDate TEXT, address TEXT, incidentNumber TEXT,nature TEXT,incidentOri TEXT)")
     return con
 
 def insertData(con,incidents):
     cur = con.cursor()
-    cur.executemany("INSERT INTO incidents VALUES(?, ?, ?,?)", incidents)
+    cur.executemany("INSERT INTO incidents VALUES(?, ?, ?,?,?)", incidents)
     con.commit()  # Remember to commit the transaction after executing INSERT.
 
 def getDataFromSQLite(con):
@@ -42,7 +42,7 @@ def convertPdfDataToJSON(pdfData):
                 nature = re.search("(COP DDACTS)|(CIR)?(COP)?(MVA)?(911)?(EMS)?\\s*[A-Z][a-z]+.*",pageLine)
                 nature = nature.group().strip()
                 address = oldAddress + re.split(nature,pageLine)[0].strip()
-                incidents.append((oldDate,address,oldIncidentNumber,nature))
+                incidents.append((oldDate,address,oldIncidentNumber,nature,incidentOri))
                 # print((oldDate,address,oldIncidentNumber,nature))
                 oldAddress=None
                 oldIncidentNumber = None
@@ -69,11 +69,11 @@ def convertPdfDataToJSON(pdfData):
                         start = True
                         continue
                     elif nature == None:
-                        incidents.append((incidentDate,'',incidentNumber,''))
+                        incidents.append((incidentDate,'',incidentNumber,'',incidentOri))
                         continue
                     nature = nature.group().strip()
                     address = re.split(nature,pageLine)[0].strip()
-                    incidents.append((incidentDate,address,incidentNumber,nature))
+                    incidents.append((incidentDate,address,incidentNumber,nature,incidentOri))
     return incidents
 
                 
