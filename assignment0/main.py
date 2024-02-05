@@ -13,7 +13,7 @@ def main(url):
     total = 0
     for unit in data:
         total = total + unit[1]
-        print(str(unit[0])+'|'+str(unit[1]))
+        # print(str(unit[0])+'|'+str(unit[1]))
     # print(total)
 
 
