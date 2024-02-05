@@ -7,7 +7,7 @@ def test_database():
         con = functions.sqlConnect("fortest"+str(random.randint(0,1000)))
         if con != None:
             try:
-                functions.insertData(con,[("1","2","3","4")])
+                functions.insertData(con,[("1","2","3","4","5")])
             except Exception as e2:
                 print("Error while inserting " +  str(e2),file=sys.stderr)
                 assert False
