@@ -12,7 +12,6 @@ def main(url):
     data = functions.getDataFromSQLite(con)
     total = 0
     emptyStringValue = ''
-    print(data)
     for unit in data:
         total = total + unit[1]
         if str(unit[0]) != '':
