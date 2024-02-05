@@ -5,7 +5,7 @@ import functions
 
 def main(url):
     con = functions.sqlConnect("normanpd.db")
-    # print(url.replace('https://www.normanok.gov/sites/default/files/documents/',''))
+    print(url.replace('https://www.normanok.gov/sites/default/files/documents/',''))
     webData = functions.getDataFromWeb(url)
     incidents = functions.convertPdfDataToJSON(webData)
     functions.insertData(con=con,incidents=incidents)
