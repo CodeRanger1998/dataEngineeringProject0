@@ -69,7 +69,7 @@ def convertPdfDataToJSON(pdfData):
                         start = True
                         continue
                     elif nature == None:
-                        incidents.append((incidentDate,'',incidentNumber,''))
+                        # incidents.append((incidentDate,'',incidentNumber,''))
                         continue
                     nature = nature.group().strip()
                     address = re.split(nature,pageLine)[0].strip()
