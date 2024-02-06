@@ -10,6 +10,7 @@ This assignment involves extracting incident data from the Norman, Oklahoma poli
 Clone the repository:
 
 git clone https://github.com/CodeRanger1998/dataEngineeringProject0
+
 cd dataEngineeringProject0
 
 Install dependencies using Pipenv:
