@@ -82,6 +82,8 @@ functions.py
   - Uses urllib to open the URL and fetches the PDF data.
   - Returns the PDF data in byte format.
 
-Bugs and Assumptions:
+## Bugs and Assumptions:
+
 Assumption: Incident data is available in PDF format on the Norman police department's website.
+
 Assumption: Each incident PDF file contains structured data with consistent formatting.
