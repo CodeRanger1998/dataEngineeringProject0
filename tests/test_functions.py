@@ -2,6 +2,9 @@ import sys
 from assignment0 import functions
 import random
 
+"""
+Testing functions sqlConnect, insertData and getDataFromSQLite
+"""
 def test_database():
     try:
         con = functions.sqlConnect("fortest"+str(random.randint(0,1000)))
@@ -26,10 +29,28 @@ def test_database():
         print("Error while connecting "+ str(e),file=sys.stderr)
         assert False
 
+"""
+Testing function getDataFromWeb
+"""
 def test_getDataFromWeb():
     try:
         webData = functions.getDataFromWeb('https://www.google.com')
         assert True
     except Exception as e:
-        print("Error while connecting "+ str(e),file=sys.stderr)
+        print("Error while getting data "+ str(e),file=sys.stderr)
+        assert False
+
+"""
+Testing function convertPdfDataToJSON
+"""
+def test_convertPdfDataToJSON():
+    try:
+        data = functions.convertPdfDataToJSON('resources/test.pdf')
+        if len(data) == 328:
+            assert True
+        else:
+            print("Error while getting data "+str(len(data)),file=sys.stderr)
+            assert False
+    except Exception as e:
+        print("Error while converting data "+ str(e),file=sys.stderr)
         assert False

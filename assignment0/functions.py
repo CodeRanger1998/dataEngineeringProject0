@@ -4,17 +4,26 @@ from PyPDF2 import PdfReader
 import re
 import sqlite3
 
+"""
+Connects to an SQLite database and creates an incidents table.
+"""
 def sqlConnect(dbName):
     con = sqlite3.connect("resources/"+dbName)
     cur = con.cursor()
     cur.execute("CREATE TABLE incidents(incidentDate TEXT, address TEXT, incidentNumber TEXT,nature TEXT,incidentOri TEXT)")
     return con
 
+"""
+Inserts data into the SQLite database.
+"""
 def insertData(con,incidents):
     cur = con.cursor()
     cur.executemany("INSERT INTO incidents VALUES(?, ?, ?,?,?)", incidents)
-    con.commit()  # Remember to commit the transaction after executing INSERT.
+    con.commit()  # Commit the transaction after executing INSERT.
 
+"""
+Retrieves data from the SQLite database.
+"""
 def getDataFromSQLite(con):
     cur = con.cursor()
     data = cur.execute(""" 
@@ -22,6 +31,10 @@ def getDataFromSQLite(con):
 """)
     return data
 
+
+"""
+Converts PDF data to JSON format.
+"""
 def convertPdfDataToJSON(pdfData):
     reader = PdfReader(pdfData)
     pages = reader.pages
@@ -76,7 +89,9 @@ def convertPdfDataToJSON(pdfData):
                     incidents.append((incidentDate,address,incidentNumber,nature,incidentOri))
     return incidents
 
-                
+"""
+Fetches PDF data from the web.
+"""                
 def getDataFromWeb(urlString):
     url = (urlString)
     headers = {}
