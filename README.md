@@ -29,9 +29,13 @@ Replace <url> with the URL of the incident summary PDF file.
 functions.py
 
 sqlConnect(dbName): Connects to an SQLite database and creates an incidents table.
+
 insertData(con,incidents): Inserts data into the SQLite database.
+
 getDataFromSQLite(con): Retrieves data from the SQLite database.
+
 convertPdfDataToJSON(pdfData): Converts PDF data to JSON format.
+
 getDataFromWeb(urlString): Fetches PDF data from the web.
 
 Bugs and Assumptions:
