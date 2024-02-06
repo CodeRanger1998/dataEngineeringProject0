@@ -25,6 +25,8 @@ pipenv run python assignment0/main.py --incidents <url>
 
 Replace <url> with the URL of the incident summary PDF file.
 
+![alt text](https://github.com/CodeRanger1998/dataEngineeringProject0/blob/main/resources/dataengineeringanimation.gif "Example run gif")
+
 ## Functions:
 
 functions.py
