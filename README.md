@@ -85,6 +85,39 @@ functions.py
   - Uses urllib to open the URL and fetches the PDF data.
   - Returns the PDF data in byte format.
 
+## Tests
+
+### Test Functions
+
+The testing of the functions is essential to ensure their correctness and robustness. We have included several test functions in the `test_functions.py` script to validate the functionality of the key functions in the `assignment0` module.
+
+### `test_database()`
+
+This test function validates the database-related functions `sqlConnect()`, `insertData()`, and `getDataFromSQLite()`. Here's what it does:
+- Connects to an SQLite database.
+- Inserts dummy data into the database.
+- Retrieves data from the database to verify insertion.
+- Raises an assertion error if any of the expected behaviors fail.
+
+### `test_getDataFromWeb()`
+
+This test function checks the functionality of the `getDataFromWeb()` function, which fetches data from a web URL. It performs the following:
+- Attempts to fetch data from a web URL (in this case, Google).
+- Raises an assertion error if fetching fails or the response is unexpected.
+
+### `test_convertPdfDataToJSON()`
+
+This test function validates the `convertPdfDataToJSON()` function, which converts PDF data to JSON format. It includes the following steps:
+- Provides a test PDF file to the function.
+- Checks if the output data has the expected length.
+- Raises an assertion error if the conversion fails or the output is unexpected.
+
+### Running the Tests
+
+To run the tests, execute the following command in the terminal:
+
+pipenv run python -m pytest
+
 ## Bugs and Assumptions:
 
 Assumption: Incident data is available in PDF format on the Norman police department's website.
