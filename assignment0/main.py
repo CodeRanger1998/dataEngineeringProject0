@@ -10,13 +10,8 @@ def main(url):
     con = functions.sqlConnect("normanpd.db")
     functions.insertData(con=con,incidents=incidents)
     data = functions.getDataFromSQLite(con)
-    emptyStringValue = ''
     for unit in data:
-        if str(unit[0]) != '':
-            print(str(unit[0])+'|'+str(unit[1]))
-        else:
-            emptyStringValue = str(unit[0])+'|'+str(unit[1])
-    print(emptyStringValue)
+        print(str(unit[0])+'|'+str(unit[1]))
 
 """
 Extracting incidents url from command line arguments
