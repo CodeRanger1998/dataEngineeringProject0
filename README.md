@@ -6,6 +6,33 @@ Pranil Ingle
 ## Assignment Description:
 This assignment involves extracting incident data from the Norman, Oklahoma police department's website, reformatting it, and storing it in an SQLite database. The extracted data includes fields such as Date/Time, Incident Number, Location, Nature, and Incident ORI. The project is implemented in Python 3 and involves downloading PDF files, parsing them, creating a SQLite database, and generating incident summaries.
 
+## Approach to Developing the Code
+
+### Understanding the Requirements
+
+The first step in developing the code was to thoroughly understand the requirements specified in the assignment prompt. This involved identifying the key tasks such as extracting incident data from PDF files, storing it in a SQLite database, and generating incident summaries.
+
+### Planning the Project Structure
+
+Once the requirements were clear, I planned the structure of the project. This included organizing the code into modules and functions, defining the database schema, and outlining the workflow for data extraction and processing.
+
+### Implementing the Functions
+
+With the project structure in place, I began implementing the individual functions required to fulfill the tasks. These functions included:
+- `sqlConnect(dbName)`: Connects to an SQLite database and creates the necessary table.
+- `insertData(con, incidents)`: Inserts incident data into the SQLite database.
+- `getDataFromSQLite(con)`: Retrieves data from the SQLite database.
+- `convertPdfDataToJSON(pdfData)`: Parses PDF data to extract incident information using regular expressions.
+- `getDataFromWeb(urlString)`: Fetches PDF data from a web URL.
+
+### Writing Tests
+
+To ensure the correctness and robustness of the code, I wrote test functions to validate each function's behavior. These test functions covered various scenarios, including database operations, web data retrieval, and PDF parsing.
+
+### Debugging and Refinement
+
+Throughout the development process, I continuously debugged the code and refined the implementation to address any issues or edge cases encountered. This involved thorough testing, error handling, and optimization where necessary.
+
 ## How to Install:
 Clone the repository:
 
